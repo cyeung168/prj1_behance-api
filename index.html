@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>C Yeung Behance API Portfolio</title>
+
+<!-- LINKED CSS FILES -->
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+	<!-- Project Linked CSS -->
+	<link rel="stylesheet" href="style.css">
+</head>
+
+
+<!-- START BODY CONTENT -->
+
+<body>
+	
+	<div class="portfolio-work"></div>
+	
+	<script id="movie-template" type="text/x-handlebars-template">
+		<div class="col-sm-4">
+			<ul class="portfolio-list">
+				{{#each projects}}
+				<li class="portfolio-item"></li>
+				{{/each}}
+			</ul>
+		</div>
+	</script>
+
+
+<!-- LINKED JQUERY FILES -->
+
+	<!-- jQuery -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+	<!-- Handlebars -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
+
+	<!-- Project Linked Javascript -->
+	<script src="script.js"></script>
+
+</body>
+</html>
