@@ -21,16 +21,18 @@
 
 <body>
 	
-	<div class="portfolio-work"></div>
+	<div class="container"></div>
 	
-	<script id="movie-template" type="text/x-handlebars-template">
-		<div class="col-sm-4">
-			<ul class="portfolio-list">
-				{{#each projects}}
-				<li class="portfolio-item"></li>
+	<script id="portfolio-template" type="text/x-handlebars-template">
+			<ul>
+				{{#each projectData.projects}} 
+				<li><img src="{{covers.[230]}}"></li> 
 				{{/each}}
 			</ul>
-		</div>
+	</script>
+
+	<script id="project-template" type="text/x-handlebars-template">
+		
 	</script>
 
 
