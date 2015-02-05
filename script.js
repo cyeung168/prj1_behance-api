@@ -2,28 +2,35 @@ $(document).ready(function(){
 	var apiKey = "CEiFJXMBImnhxEcWs4iHN5sUwRPoR6ml";
 	var userId = "cyeung168";
 	var portfolioUrl = "http://www.behance.net/v2/users/" + userId + "/projects?client_id=" + apiKey + "&callback=?";
-	$('.intro-reveal').hide();
+	$(".intro-reveal").hide();
+	$(".input-cmd").hide();
 	
 // INTRO AREA
 (function(){
 	// Prompt user to press enter when ready
 	$("#viewer-name").on("keydown", function(event) {
-		if ($("#viewer-name").val().length >= 1) {
-			console.log("value larger than 2");
+		var viewerName = $("#viewer-name").val();
+		if (viewerName.length >= 1) {
+			// console.log("value larger than 2");
 			$(".input-cmd").text("Is that what you answer to? If yes, press enter.");
+			$(".input-cmd").fadeIn(1000);
 		} // -- close .val() if method
 
 	// Listen for enter key press to fade out data storage form prompt
 		if (event.keyCode===13) {
 			$(".intro-prompt").fadeOut(100);
 			$(".intro-reveal").fadeIn(1000);
+			sessionStorage.setItem("name", viewerName);
+			$(".insert-name").text(sessionStorage.getItem("name"));
+
 		} // -- close keyCode if method
 	});	
 
 // Listen for button click to fade out entire intro area and grab portfolio area
 	$(".show-portfolio").on("click", function(e) {
-			$(".intro-area").fadeOut(1000);
+			$(".intro-area").fadeOut(100);
 			console.log("fade out intro area");
+		
 		// PORTFOLIO AREA 
 		$.getJSON(portfolioUrl, function(projects) {
 			//console.log(projects);
@@ -34,10 +41,17 @@ $(document).ready(function(){
 			$(".portfolio-area").html(html);
 
 			// Listen for click on any project to call modal that shows project details
+
+			$('.project-item').hover(function(){
+    			$(this>".text").show();
+    		});
+			
+
 			$('.project-item').on('click', function (e) {
 				//console.log("project-item clicked");
 				var projectId = $(this).data("projectid");
 				var projectsUrl = "http://www.behance.net/v2/projects/"+ projectId + "?api_key=" + apiKey + "&callback=?";
+
 
 				// PROJECT AREA
 				$.getJSON(projectsUrl, function(modules) {

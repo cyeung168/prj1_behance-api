@@ -45,18 +45,18 @@
 		<div class="intro-prompt col-sm-6 col-sm-offset-3">
 			<form action="javascript:void(0);">
 			<label for="viewer-name">Hello </label>
-			<input type="text" id="viewer-name" value="Stranger">.
+			<input type="text" id="viewer-name" placeholder="Stranger">.
 			</form>
 			<div class="input-cmd"></div>
 		</div>
 
 		<div class="intro-reveal col-sm-6 col-sm-offset-3">
-			<p>So [stranger], you want to get to know me?
-			My name is Cynthia Yeung, I'm a graphic designer from Atlanta (wait for it...)
-			learning web development in San Francisco. what?</p>
+			<h1>So <div class="insert-name"></div>, you want to get to know me?</h1>
+			<p>My name is Cynthia Yeung, I'm a graphic designer from Atlanta (wait for it...)
+			learning web development in San Francisco. <em>what?</em></p>
 
-			<p>Don't get distracted! I want to show you something.
-			Some Fucking Harry Potter Magic. [Click button to reveal portfolio].</p>
+			<p>Don't get distracted! I want to show you something.</p>
+			<button type="button" class="btn btn-default show-portfolio">Some fucking Harry Potter magic.</button>
 		</div>
 
 	</div>
@@ -69,12 +69,12 @@
 			<ul>
 				{{#each projectData.projects}} 
 				<div class="col-sm-3">
-					<a href="javascript:void(0);" data-toggle="modal" data-target=".bs-example-modal-lg">
 						<li>
+							<a href="javascript:void(0);" data-toggle="modal" data-target=".bs-example-modal-lg">
 							<img class="project-item" src="{{covers.[230]}}" data-projectid="{{id}}">
+							<div class="text">{{name}}</div>
+							</a>
 						</li> 
-						<small>{{name}}</small>
-					</a>
 				</div>
 				{{/each}}
 			</ul>
