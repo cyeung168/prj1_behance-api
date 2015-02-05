@@ -2,25 +2,27 @@ $(document).ready(function(){
 	var apiKey = "CEiFJXMBImnhxEcWs4iHN5sUwRPoR6ml";
 	var userId = "cyeung168";
 	var portfolioUrl = "http://www.behance.net/v2/users/" + userId + "/projects?client_id=" + apiKey + "&callback=?";
-	$('.intro-reveal').css("display", "none");
+	$('.intro-reveal').hide();
 	
 // INTRO AREA
 (function(){
+	// Prompt user to press enter when ready
 	$("#viewer-name").on("keydown", function(event) {
-		if ($("#viewer-name").val().length >= 2) {
+		if ($("#viewer-name").val().length >= 1) {
 			console.log("value larger than 2");
 			$(".input-cmd").text("Is that what you answer to? If yes, press enter.");
-		} // close .val() if method
+		} // -- close .val() if method
 
+	// Listen for enter key press to fade out data storage form prompt
 		if (event.keyCode===13) {
 			$(".intro-prompt").fadeOut(100);
 			$(".intro-reveal").fadeIn(1000);
-		} // close keyCode if method
+		} // -- close keyCode if method
 	});	
 
-
+// Listen for button click to fade out entire intro area and grab portfolio area
 	$(".show-portfolio").on("click", function(e) {
-			$(".intro-area").fadeOut(100);
+			$(".intro-area").fadeOut(1000);
 			console.log("fade out intro area");
 		// PORTFOLIO AREA 
 		$.getJSON(portfolioUrl, function(projects) {
@@ -31,7 +33,7 @@ $(document).ready(function(){
 			var html = template({projectData: projects});
 			$(".portfolio-area").html(html);
 
-
+			// Listen for click on any project to call modal that shows project details
 			$('.project-item').on('click', function (e) {
 				//console.log("project-item clicked");
 				var projectId = $(this).data("projectid");
@@ -46,12 +48,10 @@ $(document).ready(function(){
 
 					$(".modal-content").html(html);
 					$(".item:first").addClass("active");
-				});	
-
-			});
-
-		});
-	});
+				});	// -- close PROJECT AREA json 
+			}); // -- close .project-item click event listener
+		}); // -- close PORTFOLIO AREA json
+	}); // -- close .showportfolio click event listener
 
 
 })(); // close self-invoking function
