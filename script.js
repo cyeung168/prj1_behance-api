@@ -42,11 +42,20 @@ $(document).ready(function(){
 
 			// Listen for click on any project to call modal that shows project details
 
-			$("li").hover(function(){
-    			$(".overlay").addClass("color-overlay");
-    		}, function(){
-    			$(".overlay").removeClass("color-overlay");
+			$(".portfolio-area li")
+			.mouseenter(function(){
+    			$(this).find(".color-overlay").css("visibility", "visible");
+    		})
+    		.mouseleave (function(){
+    			$(this).find(".color-overlay").css("visibility", "hidden");
     		});
+
+			// $(".portfolio-area li").on("mouseover", function() {
+				
+			// 	$(this).find(".color-overlay").css("visibility", "visible");
+			// 	// $(this).child().last-child().css("visibility", "visible");
+			// 	// $(this).css(".color-overlay");
+			// });
 			
 
 			$('.project-item').on('click', function (e) {
