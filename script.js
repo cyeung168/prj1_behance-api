@@ -2,7 +2,26 @@ $(document).ready(function(){
 	var apiKey = "CEiFJXMBImnhxEcWs4iHN5sUwRPoR6ml";
 	var userId = "cyeung168";
 	var portfolioUrl = "http://www.behance.net/v2/users/" + userId + "/projects?client_id=" + apiKey + "&callback=?";
+	$('.intro-reveal').css("display", "none");
 	
+// WEBSITE INTRO
+(function(){
+	$("viewer-name").on("keydown", function(event) {
+		if ($("viewer-name").val().length >= 2) {
+			$("input-cmd").text("Is that what you answer to? If yes, press enter.");
+		}
+
+		if (event.keyCode===13) {
+			$("viewer-name").fadeOut(100);
+			$("intro-reveal").fadeIn(1000);
+			$(".intro-area").append("intro-reveal");
+		}
+
+	});
+
+	
+})();
+
 // PORTFOLIO AREA 
 $.getJSON(portfolioUrl, function(projects) {
 	//console.log(projects);
