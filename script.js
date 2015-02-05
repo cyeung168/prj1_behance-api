@@ -42,8 +42,10 @@ $(document).ready(function(){
 
 			// Listen for click on any project to call modal that shows project details
 
-			$('.project-item').hover(function(){
-    			$(this>".text").show();
+			$("li").hover(function(){
+    			$(".overlay").addClass("color-overlay");
+    		}, function(){
+    			$(".overlay").removeClass("color-overlay");
     		});
 			
 

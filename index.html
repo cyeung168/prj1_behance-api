@@ -66,15 +66,15 @@
 	<div class="portfolio-area"></div>
 	
 	<script id="portfolio-template" type="text/x-handlebars-template">
-			<ul>
+			<ul class="hover-overlay">
 				{{#each projectData.projects}} 
 				<div class="col-sm-3">
-						<li>
-							<a href="javascript:void(0);" data-toggle="modal" data-target=".bs-example-modal-lg">
+					<li>
+						<a href="javascript:void(0);" data-toggle="modal" data-target=".bs-example-modal-lg">
 							<img class="project-item" src="{{covers.[230]}}" data-projectid="{{id}}">
-							<div class="text">{{name}}</div>
-							</a>
-						</li> 
+							<div class="overlay"><div class="details-overlay">{{name}}</div></div>
+						</a>
+					</li> 
 				</div>
 				{{/each}}
 			</ul>
