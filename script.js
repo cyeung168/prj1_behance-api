@@ -12,12 +12,10 @@ $(document).ready(function(){
 			$(".input-cmd").text("Is that what you answer to? If yes, press enter.");
 		}
 
-		// syntax errors... forgot hashes and periods
 
 		if (event.keyCode===13) {
-			$("#viewer-name").fadeOut(100);
+			$(".intro-prompt").fadeOut(100);
 			$(".intro-reveal").fadeIn(1000);
-			$(".intro-area").append(".intro-reveal");
 		}
 
 	});
