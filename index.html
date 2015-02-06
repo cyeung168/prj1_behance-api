@@ -7,8 +7,7 @@
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 	
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+	<link href="https://fontastic.s3.amazonaws.com/GV4mnU4kvRz9424ujrcEm/icons.css" rel="stylesheet">
 
 	<!-- Project Linked CSS -->
 	<link rel="stylesheet" href="style.css">
@@ -22,40 +21,38 @@
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 		    <div class="navbar-header">
-		    	<a class="navbar-brand" href="#">
-		    		<img alt="Brand" src="#">
+		    	<a class="navbar-brand" href="index.html">
+		    		<img src="images/logo.png" style="height:125%">
 		    	</a>
-		    <ul class="nav navbar-nav navbar-right">
-				<li class="active">
-					<a href="#">Link <span class="sr-only">(current)</span></a>
-				</li>
-		        <li>
-		        	<a href="#">Link</a>
-		        </li>
-		    </ul>
 		    </div>
+		    <ul class="nav navbar-nav navbar-right ">
+                	<li><a href="http://www.linkedin.com/in/cyeung168" target="_blank"><div class="icon" data-icon="c"></div></a>
+                    <li><a href="http://www.twitter.com/cyeung168/" target="_blank"><div class="icon" data-icon="d"></div></a>
+                    <li><a href="http://www.instagram.com/cyeung168/" target="_blank"><div class="icon" data-icon="e"></div></a>
+                    <li><a href="http://onesixeight.tumblr.com/" target="_blank"><div class="icon" data-icon="i"></div></a>
+		    </ul>
 		</div>
 	</nav>
 
-	<div class="container main-area">
+	<div class="container-fluid main-area">
 
 	<div class="intro-area">
 	<div class="row">
 
-		<div class="intro-prompt col-sm-6 col-sm-offset-3">
+		<div class="intro-prompt col-sm-8 col-sm-offset-2 text-center">
 			<form action="javascript:void(0);">
-			<label for="viewer-name">Hello </label>
+			<label for="viewer-name">Hello</label>
 			<input type="text" id="viewer-name" placeholder="Stranger" autofocus>.
 			</form>
 			<div class="input-cmd"></div>
 		</div>
  
-		<div class="intro-reveal col-sm-6 col-sm-offset-3">
-			<h1>So <div class="insert-name"></div>, you want to get to know me?</h1>
-			<p>My name is Cynthia Yeung, I'm a graphic designer from Atlanta (wait for it...)
-			learning web development in San Francisco. <em>what?</em></p>
+		<div class="intro-reveal col-sm-6 col-sm-offset-3 text-center">
+			<h1>So <div class="insert-name"></div>, I'll make this short and sweet.</h1>
+			<p>My name is Cynthia Yeung, I'm a graphic designer from Atlanta<br>
+			—wait for it—learning web development in San Francisco. <em>what?</em></p>
 
-			<p>Don't get distracted! I want to show you something.</p>
+			<p>Stay focused—This way.</p>
 			<button type="button" class="btn btn-default show-portfolio">Some fucking Harry Potter magic.</button>
 		</div>
 
@@ -63,16 +60,19 @@
 	</div>
 	
 	<!-- Portfolio Area -->
-	<div class="portfolio-area"></div>
+	<div class="container portfolio-area"></div>
 	
 	<script id="portfolio-template" type="text/x-handlebars-template">
+		<h1>Tricks, no magic. <small>Or is it?</small></h1>
 			<ul class="hover-overlay">
 				{{#each projectData.projects}} 
 				<div class="col-sm-3">
 					<li>
-						<a href="javascript:void(0);" data-toggle="modal" data-target=".bs-example-modal-lg">
+						<a data-toggle="modal" data-target=".bs-example-modal-lg">
 							<img class="project-item" src="{{covers.[230]}}" data-projectid="{{id}}">
-							<div class="color-overlay"><div class="details-overlay">{{name}}</div></div>
+							<div class="color-overlay">
+								<div class="details-overlay">{{name}}</div>
+							</div>
 						</a>
 					</li> 
 				</div>
@@ -92,25 +92,19 @@
 			<script id="project-template" type="text/x-handlebars-template">
 				<div class="modal-header">
 	                <button type="button" class="close" data-dismiss="modal">×</button>					
-	                <h4>{{project.name}}</h4>
+	                <h3>{{project.name}}</h3>
                 </div>
                 
                 <div class="modal-body">
 	                <div class="row">
 					
-						<div class="col-sm-6">
+						<div class="col-sm-8">
 							<div id="prj-img-car" class="carousel slide" data-ride="carousel">
-							  <!-- Indicators -->
-							<ol class="carousel-indicators">
-								<li data-target="#prj-img-car" data-slide-to="0" class="active"></li>
-								<li data-target="#prj-img-car" data-slide-to="1"></li>
-								<li data-target="#prj-img-car" data-slide-to="2"></li>
-							</ol>
 							  <!-- Wrapper for slides -->
 							<div class="carousel-inner" role="listbox">
 							    {{#each project.modules}}
 							    <div class="item">
-							    	<img src="{{src}}" style="height: 300px; width=300px">  
+							    	<img src="{{src}}" style="width=450px">  
 							    </div>
 							     {{/each}}
 							</div>
@@ -128,8 +122,11 @@
 						</div>
 
 
-						<div class="col-sm-6">
+						<div class="col-sm-4">
+						<div class="category">Description</div>
 							<p>{{project.description}}</p>
+						<div class="category">Tags</div>
+						<p>{{project.tags}}</p>
 						</div>
 
 					</div>

@@ -26,10 +26,31 @@ $(document).ready(function(){
 		} // -- close keyCode if method
 	});	
 
+
+
+$("input[placeholder]").each(function () {
+        $(this).attr('size', $(this).attr('placeholder').length);
+    });
+
+// function resizeInput() {
+//     $(this).attr('size', $(this).val().length);
+// }
+
+// $('input[type="text"]')
+//     // event handler
+//     .keyup(resizeInput)
+//     // resize on page load
+//     .each(resizeInput);
+
+
+
+
 // Listen for button click to fade out entire intro area and grab portfolio area
 	$(".show-portfolio").on("click", function(e) {
 			$(".intro-area").fadeOut(100);
-			console.log("fade out intro area");
+			$('body').css("background-color", "#FAFAFA");
+			//console.log("fade out intro area");
+
 		
 		// PORTFOLIO AREA 
 		$.getJSON(portfolioUrl, function(projects) {
@@ -42,27 +63,22 @@ $(document).ready(function(){
 
 			// Listen for click on any project to call modal that shows project details
 
-			$(".portfolio-area li")
-			.mouseenter(function(){
-    			$(this).find(".color-overlay").css("visibility", "visible");
-    		})
-    		.mouseleave (function(){
-    			$(this).find(".color-overlay").css("visibility", "hidden");
-    		});
+				$(".portfolio-area li").on ('mouseenter',function(){
+	    			$(this).find(".color-overlay").css("visibility", "visible");
+	    		});
+	    		$(".portfolio-area li").on ('mouseleave', function(){
+	    			$(this).find(".color-overlay").css("visibility", "hidden");
+	    		});
+	    	
 
-			// $(".portfolio-area li").on("mouseover", function() {
-				
-			// 	$(this).find(".color-overlay").css("visibility", "visible");
-			// 	// $(this).child().last-child().css("visibility", "visible");
-			// 	// $(this).css(".color-overlay");
-			// });
-			
 
-			$('.project-item').on('click', function (e) {
-				//console.log("project-item clicked");
-				var projectId = $(this).data("projectid");
+			$('.portfolio-area li').on('click', function (e) {
+    			// $(this).css("visibility", "hidden");
+				console.log("project-item clicked");
+				var projectId = $(this).find("img").data("projectid");
 				var projectsUrl = "http://www.behance.net/v2/projects/"+ projectId + "?api_key=" + apiKey + "&callback=?";
 
+				console.log("after hover yay!");
 
 				// PROJECT AREA
 				$.getJSON(projectsUrl, function(modules) {
@@ -75,6 +91,8 @@ $(document).ready(function(){
 					$(".item:first").addClass("active");
 				});	// -- close PROJECT AREA json 
 			}); // -- close .project-item click event listener
+
+
 		}); // -- close PORTFOLIO AREA json
 	}); // -- close .showportfolio click event listener
 
